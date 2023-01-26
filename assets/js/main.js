@@ -2,12 +2,14 @@ let body = document.getElementById("BODY");
 
 function Menu() {
     let menu = document.getElementById("MENU");
-    if(menu.style.width == "0%") {
-        menu.style.width = "100%";
-        body.style.overflowY = "hidden";        
-    } else {
+    if(menu.style.display == "block") {
         menu.style.width = "0%";
-        body.style.overflowY = "auto";
+        menu.style.display = "none";
+        body.style.overflowY = "auto";        
+    } else {
+        menu.style.display = "block";
+        menu.style.width = "100%";
+        body.style.overflowY = "hidden";
     }
 }
 
@@ -15,6 +17,7 @@ window.addEventListener("click", (event) => {
     let menu = document.getElementById("MENU");
     if(event.target == menu) {
         menu.style.width = "0%";
+        menu.style.display = "none";
         body.style.overflowY = "auto";
     }
 });
